@@ -1,0 +1,356 @@
+/*.centeredGrid {
+	height: 100px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}*/
+
+.centeredComponent {
+	left: 50%;
+	margin-left: -100px;
+	width: 200px;
+}
+
+.ui-selectonemenu {
+	width: 280px;
+	vertical-align: middle;
+}
+
+.ui-selectonemenu-label {
+	width: 280px;
+	vertical-align: middle;
+}
+
+.ui-fileupload-simple .ui-button {
+	overflow: hidden;
+}
+
+.ui-fileupload-buttonbar .ui-fileupload-choose input {
+	cursor: pointer;
+	direction: ltr;
+	font-size: 23px;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 121px;
+}
+
+.ui-button, button.ui-button.ui-state-default, .ui-button.ui-state-default
+	{
+	border: 1px solid #1f89ce;
+	color: #fff;
+	background: #2399e5;
+}
+
+.ui-widget {
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 14px;
+}
+
+.ui-button {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	margin-right: .1em;
+	text-decoration: none !important;
+	cursor: pointer;
+	text-align: center;
+	zoom: 1;
+	overflow: visible;
+}
+
+.ui-menu {
+	background-color: skyblue;
+	height: 538px;
+	vertical-align: top;
+	position: absolute !important;
+}
+
+.ui-growl {
+	left: 0;
+	margin: 0 auto;
+	top: 400px;
+}
+
+.panelGridCenter {
+	margin: 0 auto;
+}
+
+.main_content {
+	left: 12%;
+    position: absolute; /*!important;*/
+  /*  vertical-align: top;*/
+    width: 87%;
+    background-color: white;
+}
+
+.main-page {
+	background-color: #6666c6;
+	width: 100%;
+	height: 100%;
+}
+
+.header {
+	background-color: black;
+	height: 39px;
+	left: 16px;
+	margin: 0 0 0 -5px;
+	/*     position: absolute;
+ */
+	top: 27%;
+	width: 100%;
+}
+
+.footer {
+	background-color: black;
+	height: 35px;
+	width: 100%;
+	position: absolute; /*!important;*/
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+
+.ui-stack {
+	left: 100px;
+	position: relative;
+	top: 352px;
+}
+
+.user_box {
+	height: 39px;
+	left: 1%;
+	margin: 0 0 0 -5px;
+	position: relative;
+	top: 0;
+	width: 100%;
+}
+
+.mandatory {
+	color: red;
+}
+
+.inputTextLarge {
+	width: 340px;
+}
+
+.inputTextMedium {
+	width: 150px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding: 0 4em;
+	background-color: #bec0c2;
+}
+
+.dataTable {
+	text-align: center;
+	vertical-align: middle;
+}
+
+li.ui-tabmenuitem.ui-state-default.ui-state-active {
+	background: #ff0080;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a,
+	.ui-tabs .ui-tabs-nav li.ui-state-processing a {
+	background-color: skyblue;
+	cursor: text;
+}
+
+.contextMenu {
+	display: block;
+	height: 25px;
+	left: 583px;
+	top: 367px;
+	z-index: 1003;
+}
+
+.failedRowColor{
+	color:red;
+}
+
+.busyRowColor{
+	color:orange;
+}
+
+.runningRowColor{
+	color:#00bb2f;
+}
+.successRow{
+	background-color:skyblue;
+}
+.failedRow{
+	background-color:#FF4040;
+}
+.missMatchRow{ 
+	color:#FF7906;
+}
+.repeatedFeed{
+	background-color:#AEDE94;
+}
+.ui-dialog .ui-dialog-buttonpane {
+    background-image: none;
+    margin: 0.5em 0 0;
+    padding: 0.3em 1em 0.5em 0.4em;
+    text-align:center;
+}
+
+
+.ui-fluidC .ui-inputfield {
+    box-sizing: border-box;
+}
+.ui-fluidC .ui-inputtext {
+}
+.ui-fluidC .ui-inputtextarea {
+}
+.ui-fluidC .ui-selectonemenu {
+    box-sizing: border-box;
+}
+.ui-fluidC .ui-selectonemenu .ui-selectonemenu-trigger {
+    box-sizing: border-box;
+    padding: 0 6px;
+    width: 32px;
+}
+.ui-fluidC .ui-calendar, .ui-fluidC .ui-calendar input {
+}
+.ui-fluidC .ui-spinner {
+}
+.ui-fluidC .ui-spinner .ui-spinner-input {
+    padding-right: 36px;
+}
+.ui-fluidC .ui-spinner .ui-spinner-button {
+    width: auto;
+}
+.ui-fluidC .ui-spinner .ui-spinner-button .ui-icon {
+    left: 6px;
+}
+.ui-fluidC .ui-autocomplete, .ui-fluidC .ui-autocomplete-input {
+}
+.ui-fluidC .ui-autocomplete .ui-autocomplete-dropdown.ui-button {
+    width: 2.4em;
+}
+.ui-fluidC .ui-inputmask {
+}
+.ui-fluidC .ui-password {
+}
+.ui-fluidC .ui-keyboard-input {
+}
+.ui-fluidC .ui-selectcheckboxmenu {
+}
+.ui-fluidC .ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger .ui-icon {
+    margin-left: auto;
+    margin-right: auto;
+}
+.ui-fluidC .ui-selectcheckboxmenu-trigger {
+    box-sizing: border-box;
+    width: 32px;
+}
+.ui-fluidC .ui-button {
+    box-sizing: border-box;
+}
+.ui-fluidC .ui-buttonset.ui-buttonset-2 .ui-button {
+    width: 50%;
+}
+.ui-fluidC .ui-buttonset.ui-buttonset-3 .ui-button {
+    width: 33%;
+}
+.ui-fluidC .ui-buttonset.ui-buttonset-4 .ui-button {
+    width: 25%;
+}
+.ui-fluidC .ui-buttonset.ui-buttonset-5 .ui-button {
+    width: 20%;
+}
+.ui-fluidC .ui-buttonset.ui-buttonset-6 .ui-button {
+    width: 16%;
+}
+@media (max-width: 640px) {
+.ui-fluidC .ui-buttonset.ui-buttonset-1 .ui-button, .ui-fluidC .ui-buttonset.ui-buttonset-2 .ui-button, .ui-fluidC .ui-buttonset.ui-buttonset-3 .ui-button, .ui-fluidC .ui-buttonset.ui-buttonset-4 .ui-button, .ui-fluidC .ui-buttonset.ui-buttonset-5 .ui-button, .ui-fluidC .ui-buttonset.ui-buttonset-6 .ui-button {
+}
+}
+.ui-fluidC .ui-splitbutton {
+    box-sizing: border-box;
+}
+
+.ui-fluidC .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    box-sizing: border-box;
+    width: 32px;
+}
+
+
+
+DIV.ctn {
+    text-align: center;
+    }
+    
+.top {
+	height: 5%;
+    opacity: 0.8;
+    padding: 50px 0 0 30%;
+    z-index: 1000;
+}
+
+.bigWidthChart{
+height:400px;
+ width:1500px;	
+}
+
+.smallWidthChart{
+height:400px;
+ width:750px;	
+}
+
+.highlightBuildMaster{
+	color: blue;
+}
+
+.ui-blockui-content{
+  background-color: transparent;
+  display: none;
+  z-index: 1000;
+}
+
+
+.ui-icon.fa {
+     text-indent:0px;
+     background-image:none;
+}
+
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8;
+    font-weight: inherit;
+    text-shadow: 1 1px 1 rgba(255, 255, 255, 0.7);
+}
+
+.ui-fluidC .ui-selectonemenu {
+    box-sizing: border-box;
+    width: inherit;
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th {
+    padding: 5px 0px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.ui-button-text-only .ui-button-text {
+    padding: 0.2em 0.2em;
+}
+
+.ui-dashboard-column {
+    float: left;
+    padding-bottom: 100px;
+    width: 50%;
+}
+
+.jqplot-target {
+    color: #1d0303;
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    margin: auto;
+}

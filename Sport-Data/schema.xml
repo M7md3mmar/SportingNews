@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="example" version="1.4">
+    <types>
+        <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true" />
+
+      <fieldType name="long" class="solr.TrieLongField" positionIncrementGap="0" precisionStep="0"/> 
+	  
+  <fieldType name="date" class="solr.TrieDateField" sortMissingLast="true" omitNorms="true"/>
+
+
+
+
+
+<fieldType name="textGen" class="solr.TextField">
+            <analyzer type="index">
+                
+                <tokenizer class="solr.KeywordTokenizerFactory" />
+                <filter class="solr.LowerCaseFilterFactory" />
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory" />
+                <filter class="solr.TrimFilterFactory" />
+
+
+
+         
+            </analyzer>
+            <analyzer type="query">
+                
+                <tokenizer class="solr.KeywordTokenizerFactory" />
+                <filter class="solr.LowerCaseFilterFactory" />
+                <filter class="solr.TrimFilterFactory" />
+
+       
+            </analyzer>
+        </fieldType>
+
+
+      
+    </types>
+    <fields>
+		
+        <field name="id" type="string" indexed="true" stored="true" required="true" />
+        <field name="link" type="string" indexed="true" stored="true" />
+        <field name="date" type="date" indexed="true" stored="true" />
+		<field name="source" type="string" indexed="true" stored="true" />
+		<field name="title" type="string" indexed="true" stored="true" />
+		
+		
+            </fields>
+    <uniqueKey>id</uniqueKey>
+       <solrQueryParser defaultOperator="OR" />
+
+</schema>

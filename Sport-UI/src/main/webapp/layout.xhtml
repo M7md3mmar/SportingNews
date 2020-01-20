@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>IN3-Sporting News</title>
+</h:head>
+<h:body>
+
+	<p:growl id="msg" autoUpdate="false" sticky="true" showDetail="true"  life="3000" />
+	<h:outputStylesheet library="css" name="style.css" />
+
+	<div id="page" class="ui-fluidC">
+
+		<div id="header-container" style="background-color: black;">
+			<TABLE>
+				<TR>
+					<TD style="width: 14%;"><!-- <h:graphicImage
+							value="/resources/images/logo_arrow.jpg" width="100%"/> --></TD>
+					<TD>
+						<DIV style="float: right;">
+							<h:form>
+								<p style="color: white;">
+									<p:outputLabel value="IN3 " />
+								
+									
+								
+										
+										
+										
+								</p>
+								
+								<ui:remove><p:commandButton id="refreshCompBtnIdGeneral" value="Refresh"	ajax="false" update="@all" icon="fa fa-refresh" style=" float: right;" /></ui:remove>
+							</h:form>
+						</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</div>
+
+		<div id="titleBar" >
+			<TABLE>
+				<TR>
+					<TD>
+						<DIV style="width: 100%;">
+							<ui:insert name="title">
+							</ui:insert>
+						</DIV>
+					</TD>
+					<!-- <TD>
+					</TD>-->
+				</TR>
+			</TABLE>
+		</div>
+		<div id="content-container">
+			<table>
+				<TR>
+					<td>
+					<!-- 	<div id="sidebar">
+							<ui:include src="/WEB-INF/template/sidemenu.xhtml" />
+						</div> -->
+					</td>
+					<td width="85%" class="main_content">
+							<ui:insert name="content">
+							</ui:insert>
+					</td>
+				</TR>
+			</table>
+
+		</div>
+		
+<!-- 		<div id="footer" align="center" class="footer">
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="/WEB-INF/template/footer.xhtml" />  
+	    	</ui:insert>
+    	    </div> -->
+
+        </div>
+</h:body>
+</html>
