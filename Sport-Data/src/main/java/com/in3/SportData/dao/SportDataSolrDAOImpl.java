@@ -33,60 +33,8 @@ public class SportDataSolrDAOImpl implements SportsDataDAO {
     
     @Autowired
     private SolrClient sportDataSolrClient;
-
-   
-
-    @Override
-    public List<SportingNewsDTO> getSportNews(String keyWord, String source) {
-        logger.info("SportDataSolrDAO.getSportNewsData()-----------------------------------Start");
-        List<SportingNewsDTO> result = null;
-        try {
-            if (keyWord != null && !"".equalsIgnoreCase(keyWord)) {
-                SolrQuery solrQuery = getKeywordQuery(keyWord, source);
-                QueryResponse queryResponse = sportDataSolrClient.query(solrQuery);
-                SolrDocumentList docs = queryResponse.getResults();
-                if (queryResponse != null && docs != null && !docs.isEmpty()) {
-                    result = fillResult(docs);
-                }
-            }
-        } catch (Exception e) {
-            logger.error("Error", e);
-        }
-        logger.info("SportDataSolrDAO.getSportNewsData()-----------------------------------End");
-        return result;
-    }
-
-    private List<SportingNewsDTO> fillResult(SolrDocumentList docs) {
-        List<SportingNewsDTO> result;
-        SportingNewsDTO dto;
-        result = new ArrayList<>();
-        for (SolrDocument solrDocument : docs) {
-            dto = getSportingNewsDTO(solrDocument);
-            result.add(dto);
-        }
-        return result;
-    }
-
-    private SportingNewsDTO getSportingNewsDTO(SolrDocument solrDocument) {
-        SportingNewsDTO dto = new SportingNewsDTO();
-        dto.setId(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.ID)));
-        dto.setTitle(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.TITLE)));
-        dto.setSource(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.SOURCE)));
-        dto.setLink(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.LINK)));
-        dto.setDate(Utils.getSafeString((Date) solrDocument.getFieldValue(SportsNewsConstants.Solr.DATE)));
-        return dto;
-    }
-
-    private SolrQuery getKeywordQuery(String keyWord, String source) {
-        SolrQuery solrQuery = new SolrQuery();
-        StringBuilder q = new StringBuilder(SportsNewsConstants.Solr.TITLE + ":" + keyWord + "*" + " OR " + SportsNewsConstants.Solr.TITLE + ":*" + keyWord + "*");
-        if (source != null && !source.isEmpty())
-            q.append(" AND source:" + source);
-
-        solrQuery.add("q", q.toString());
-        solrQuery.addSort(SportsNewsConstants.Solr.DATE, ORDER.desc);
-        return solrQuery;
-    }
+    
+    
 
     @Override
     public boolean addSportNews(List<SportingNewsDTO> listFeed) {
@@ -123,6 +71,78 @@ public class SportDataSolrDAOImpl implements SportsDataDAO {
         logger.info("SportDataSolrDAO.SportDataSolrDAO()-----------------------------------End");
         return flag;
 
+    }   
+
+    @Override
+    public List<SportingNewsDTO> getSportNews(String keyWord, String source) {
+        logger.info("SportDataSolrDAO.getSportNewsData()-----------------------------------Start");
+        List<SportingNewsDTO> result = null;
+        try {
+            if (keyWord != null && !"".equalsIgnoreCase(keyWord)) {
+                SolrQuery solrQuery = getKeywordQuery(keyWord, source);
+                QueryResponse queryResponse = sportDataSolrClient.query(solrQuery);
+                SolrDocumentList docs = queryResponse.getResults();
+                if (queryResponse != null && docs != null && !docs.isEmpty()) {
+                    result = fillResult(docs);
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error", e);
+        }
+        logger.info("SportDataSolrDAO.getSportNewsData()-----------------------------------End");
+        return result;
     }
+    
+    
+
+    /**
+     * Fill returned Solr document list  to LIST OF DTOs
+     * @param docs
+     * @return list of DTOs
+     */
+    protected List<SportingNewsDTO> fillResult(SolrDocumentList docs) {
+        List<SportingNewsDTO> result;
+        SportingNewsDTO dto;
+        result = new ArrayList<>();
+        for (SolrDocument solrDocument : docs) {
+            dto = getSportingNewsDTO(solrDocument);
+            result.add(dto);
+        }
+        return result;
+    }
+
+    /**
+     * Helper Method  to prepare the returned result from solr
+     * @param solrDocument
+     * @return SportingNewsDTO
+     */
+    protected SportingNewsDTO getSportingNewsDTO(SolrDocument solrDocument) {
+        SportingNewsDTO dto = new SportingNewsDTO();
+        dto.setId(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.ID)));
+        dto.setTitle(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.TITLE)));
+        dto.setSource(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.SOURCE)));
+        dto.setLink(Utils.getSafeString((String) solrDocument.getFieldValue(SportsNewsConstants.Solr.LINK)));
+        dto.setDate(Utils.getSafeString((Date) solrDocument.getFieldValue(SportsNewsConstants.Solr.DATE)));
+        return dto;
+    }
+
+    /**
+     * Helper Method to prepare solr query
+     * @param keyWord
+     * @param source
+     * @return  SolrQuery
+     */
+    protected SolrQuery getKeywordQuery(String keyWord, String source) {
+        SolrQuery solrQuery = new SolrQuery();
+        StringBuilder q = new StringBuilder(SportsNewsConstants.Solr.TITLE + ":" + keyWord + "*" + " OR " + SportsNewsConstants.Solr.TITLE + ":*" + keyWord + "*");
+        if (source != null && !source.isEmpty())
+            q.append(" AND source:" + source);
+
+        solrQuery.add("q", q.toString());
+        solrQuery.addSort(SportsNewsConstants.Solr.DATE, ORDER.desc);
+        return solrQuery;
+    }
+
+
 
 }

@@ -12,6 +12,11 @@ import org.springframework.core.env.Environment;
 
 import com.in3.SportData.utils.SportsNewsConstants;
 
+/**
+ * @author Ammar
+ ** @version 1.0 .
+ * @since 21/1/2020
+ */
 @Configuration
 public class SportsNewsConfiguration {
 	

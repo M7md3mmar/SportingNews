@@ -22,10 +22,19 @@ public class SportNewsService {
 
     
 
+    /**
+     * @param data
+     * Service to pass list of SportingNewsDTO to dao layer
+     */
     public void addSolrDocument(List<SportingNewsDTO> data) {
         sportDataSolrDAO.addSportNews(data);
     }
 
+    /**
+     * @param keyWord
+     * @param source
+     * @return  List<SportingNewsDTO>
+     */
     public List<SportingNewsDTO> getDataNews(String keyWord, String source) {
         return sportDataSolrDAO.getSportNews(keyWord, source);
     }

@@ -17,6 +17,7 @@ import com.in3.SportData.service.SportNewsService;
  * @since 21/1/2020
  */
 
+
 @RestController
 @RequestMapping(value = "/sportNews")
 public class SportNewsController {
@@ -26,6 +27,11 @@ public class SportNewsController {
     
 
 
+    /**
+     * @param searchKewWord
+     * @param source
+     * @return List of sporting news
+     */
     @RequestMapping(value = "/getData", method = RequestMethod.GET)
     public List<SportingNewsDTO> getData(@RequestParam(value = "keyword") String searchKewWord, @RequestParam(value = "source") String source) {
         return sportNewsService.getDataNews(searchKewWord, source);

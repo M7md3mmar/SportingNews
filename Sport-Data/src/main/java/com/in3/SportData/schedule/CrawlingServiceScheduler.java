@@ -27,7 +27,7 @@ import com.in3.SportData.utils.Utils;
  * @version 1.0 .
  */
 @Component
-public class CrawlingServiceAsync 
+public class CrawlingServiceScheduler 
 {
 	 private Logger logger = LoggerFactory.getLogger(this.getClass());
 	 
@@ -36,6 +36,9 @@ public class CrawlingServiceAsync
 
 	private Set<String> links = new HashSet<String>();
 
+	/**
+	 * Crawl from Shorouk
+	 */
 	@Scheduled(fixedRate = 1800000) // Run every 0.5 hour
 	public void crawlShorouk() {
 		getPageLinks("https://www.shorouknews.com/");
@@ -44,6 +47,9 @@ public class CrawlingServiceAsync
 
 	}
 
+	/**
+	 * Crawl from Yallakora
+	 */
 	@Scheduled(fixedRate = 1800000) // Run every 0.5 hour
 	public void crwalYallakora() {
 		getPageLinks("https://www.yallakora.com/");
@@ -51,10 +57,12 @@ public class CrawlingServiceAsync
 		addSolrDocument(listData);
 	}
 
-	public void crwalYoum7() {
 
-	}
 
+	/**
+	 * Get All Links related to URL
+	 * @param URL
+	 */
 	public void getPageLinks(String URL) {
 
 		if (!links.contains(URL)) {
@@ -78,6 +86,11 @@ public class CrawlingServiceAsync
 		}
 	}
 
+	/**
+	 * To get each title and its link
+	 * @param source
+	 * @return List<SportingNewsDTO>
+	 */
 	public List<SportingNewsDTO> getData(String source) {
 		List<SportingNewsDTO> resultList = new ArrayList<>();
 		Document document;
@@ -118,6 +131,10 @@ public class CrawlingServiceAsync
 		return resultList;
 	}
 
+	/**
+	 * Pass List of DTOs to Service layer
+	 * @param data
+	 */
 	public void addSolrDocument(List<SportingNewsDTO> data) {
 		sportNewsService.addSolrDocument(data);
 	}
